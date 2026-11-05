@@ -34,6 +34,16 @@ Conforme o edital PECC 01/2026 consultado na conversa, o plano tem limite de 10 
 
 ## Próximos passos
 
+### Atualização de 05/11/2026
+
+- Foi produzida a análise preliminar `analise-viabilidade-doutorado-pecc.md`, com matriz do edital, fontes de dados, pergunta central recomendada, alternativas em SHM, estimativa de infraestrutura e portões de viabilidade.
+- Prioridade definida pelo candidato: **alto impacto e contribuição científica original com execução factível**. A complexidade metodológica é aceitável quando justificada; a pesquisa deve ocorrer remotamente com dados públicos e permitir uso de Python, IA, aprendizado de máquina, deep learning e estatística. PLN e IA agêntica são possibilidades subordinadas a hipótese e dados adequados.
+- Pergunta candidata: confiabilidade, incerteza e adaptação eficiente de modelos de inspeção visual de danos em pontes sob mudança de domínio. É uma recomendação condicional, ainda dependente de auditoria dos arquivos, rótulos, identificadores de ponte e revisão de originalidade.
+- O PDF local identifica-se internamente como **Edital PECC nº 01/2027**, com inscrições até 22/11/2026. O plano de até 10 páginas é eliminatório, mínimo 7,0; os critérios do Anexo A.2.1 pesam 4/3/3 para relevância/bibliografia, metodologia e aderência.
+- O link antigo do DataCenterHub citado pelo candidato retornou 404 no acesso web; o registro preservado do benchmark está em https://datacenterhub.org/resources/257. Hell Bridge (2,5 GB) é uma opção de sinais com dano imposto. Bases de imagens e sensores não estão pareadas.
+- **Próxima ação:** auditar os arquivos de dacl10k e ao menos uma base externa, confirmar licenças e unidades de agrupamento, executar piloto de recursos, então fechar a pergunta e redigir o plano para submissão.
+
+
 1. Confirmar com possíveis orientadores a linha do PECC e a adequação do recorte à Computação.
 2. Fazer inventário reproduzível de 2–4 bases candidatas: arquivos disponíveis, licença, número e tipo de amostras, rótulos, unidade de agrupamento (ponte), metadados e restrições.
 3. Escolher uma pergunta principal e critérios de avaliação após a auditoria dos dados.
