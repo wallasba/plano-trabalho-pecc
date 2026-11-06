@@ -8,6 +8,8 @@
 
 > **Nota:** Esta versão segue as seis seções previstas no Edital PECC nº 01/2027. Ainda requer revisão bibliográfica sistemática, confirmação de orientação e linha, auditoria de dados e ajuste final à formatação de até 10 páginas. As hipóteses são propostas, não resultados obtidos. A versão para submissão deve identificar o candidato somente na capa e manter as demais páginas anônimas.
 
+**Restrição de execução:** pesquisa integralmente remota. Não prevê visitas a campo, coleta presencial, instalação de sensores ou novos ensaios físicos pelo pesquisador. Serão usados dados digitais existentes e acessados remotamente; solicitações, parcerias e consultas a especialistas ocorrerão a distância.
+
 ## 1. Introdução
 
 O monitoramento da saúde estrutural (Structural Health Monitoring — SHM) utiliza medições de sensores para acompanhar a resposta de estruturas e apoiar a identificação de mudanças em seu comportamento. Em pontes, sinais de aceleração, deformação, deslocamento e variáveis ambientais podem contribuir para essa avaliação. Entretanto, mudanças observadas nos sinais podem decorrer tanto de dano quanto de temperatura, vento, tráfego, alterações operacionais, ruído ou falhas de sensores. Um modelo que confunda essas causas pode produzir alertas indevidos ou não sinalizar mudanças relevantes.
@@ -24,7 +26,7 @@ O problema é relevante para a engenharia estrutural porque o uso de dados de mo
 
 A contribuição científica potencial não é simplesmente aplicar uma rede neural a um conjunto de sinais. A lacuna candidata está na avaliação reproduzível da relação entre mudança de condições, risco de erro, incerteza e custo de adaptação em problemas de SHM de pontes. Essa lacuna e a originalidade de qualquer método serão verificadas por revisão bibliográfica recente e comparação com estudos que já utilizam os mesmos benchmarks. O trabalho deve avançar além de uma comparação de modelos prontos; se a auditoria não sustentar uma contribuição metodológica nova, o foco será revisto antes de reivindicar originalidade.
 
-A estratégia de dados em etapas permite iniciar com benchmarks acessíveis, documentar restrições de acesso e testar hipóteses sem depender inicialmente de uma parceria nacional. A relevância para o Brasil está no desenvolvimento de métodos e protocolos que possam ser avaliados futuramente em estruturas brasileiras. Não se alegará validação nacional sem dados locais autorizados, representativos e avaliados independentemente.
+A estratégia de dados em etapas permite iniciar com benchmarks digitais acessíveis, documentar restrições de acesso e testar hipóteses sem depender inicialmente de uma parceria nacional. A pesquisa será integralmente remota, sem visita a campo, coleta presencial, instrumentação ou ensaio físico conduzido pelo pesquisador. A relevância para o Brasil está no desenvolvimento de métodos e protocolos que possam ser avaliados futuramente em estruturas brasileiras usando dados digitais autorizados e fornecidos/acessados remotamente. Não se alegará validação nacional sem dados locais adequados e avaliação independente.
 
 A aderência proposta ao PECC está na aplicação de métodos computacionais, estatísticos e de identificação de sistemas a estruturas. O enquadramento formal na área de Estruturas e em linha de pesquisa vigente, bem como a orientação ou coorientação, deverá ser confirmado com o programa. A experiência do candidato em engenharia estrutural, matemática, ciência de dados, Python e dados de infraestrutura é compatível com o tema; a pesquisa permitirá aprofundar aprendizado de máquina, deep learning e inferência estatística. A análise geoespacial poderá caracterizar a proveniência e a representatividade dos dados se os metadados permitirem, sem constituir um segundo eixo independente.
 
@@ -42,7 +44,7 @@ Desenvolver e avaliar um protocolo reproduzível para analisar a confiabilidade 
 4. Avaliar o efeito de variações documentadas nos dados e de cenários controlados de ruído ou indisponibilidade de sensores, sem confundi-los com dano observado.
 5. Investigar calibração, quantificação de incerteza ou decisão seletiva e comparar seus efeitos sobre risco, cobertura e custo com baselines fortes.
 6. Testar validação externa somente quando tarefa, variáveis e critérios forem suficientemente compatíveis; documentar limites de transferência entre estruturas.
-7. Avaliar a viabilidade de uma aplicação brasileira por parceria e dados autorizados, sem pressupor acesso ou representatividade antes de sua confirmação.
+7. Avaliar a viabilidade de uma aplicação brasileira usando exclusivamente dados digitais autorizados e obtidos remotamente, sem coleta presencial e sem pressupor acesso ou representatividade.
 
 ## 4. Revisão da Literatura
 
@@ -58,19 +60,19 @@ A revisão aprofundará publicações sobre cada conjunto selecionado, métodos 
 
 ### 5.1 Desenho e auditoria dos dados
 
-A pesquisa será quantitativa, computacional e experimental, com etapas de triagem, auditoria, reprodução, avaliação controlada e validação externa condicional. A triagem abrangerá os registros de [Legacy/NEES](https://datacenterhub.org/nees.html) e [post-NEES](https://datacenterhub.org/post-nees.html). Para cada registro serão anotados identificador, descrição, tipo de estrutura, tipo de dado, finalidade, acesso, documentação e pertinência potencial a SHM de pontes. A análise detalhada será limitada aos candidatos pertinentes.
+A pesquisa será quantitativa e computacional, baseada em análise secundária de dados digitais existentes, com etapas de triagem, auditoria, reprodução, avaliação controlada e validação externa condicional. Não haverá trabalho de campo, coleta presencial ou novos ensaios físicos. A triagem abrangerá os registros de [Legacy/NEES](https://datacenterhub.org/nees.html) e [post-NEES](https://datacenterhub.org/post-nees.html). Para cada registro serão anotados identificador, descrição, tipo de estrutura, tipo de dado, finalidade, acesso remoto, documentação e pertinência potencial a SHM de pontes. A análise detalhada será limitada aos candidatos pertinentes.
 
 Candidatos iniciais incluem [DataCenterHub 257 — Structural Control and Monitoring Benchmark Problems](https://datacenterhub.org/resources/257), [DataCenterHub 264 — Projects Suitable for SHM and Model Updating Research](https://datacenterhub.org/resources/264), [Hell Bridge Test Arena](https://zenodo.org/records/14632942), [Z24](https://bwk.kuleuven.be/bwm/z24) e o [portal de dados abertos da NTNU](https://www.ntnu.edu/kt/open-data). A seleção não está fechada. Serão verificados arquivos efetivamente disponíveis, licença, formatos, variáveis, amostragem, estados de dano, condições ambientais e operacionais, estrutura de agrupamento, documentação, referências, tamanho e requisitos de software.
 
 ### 5.2 Portões de decisão
 
-1. **Acesso e termos:** se arquivos ou termos de uso impedirem os experimentos previstos, excluir ou substituir a base.
+1. **Acesso remoto e termos:** incluir somente dados que possam ser obtidos e usados digitalmente, sem deslocamento ou atividade presencial, respeitando licença, autorização e termos. Caso contrário, excluir ou substituir a base.
 2. **Tarefa identificável:** se não houver estados de referência, variáveis e rótulos interpretáveis, não alegar detecção supervisionada de dano; reformular para a tarefa suportada pelos dados.
 3. **Independência e vazamento:** estabelecer partições por ensaio, estado, período ou estrutura, conforme a unidade independente disponível. Se não for possível, explicitar a limitação e não tratar amostras correlacionadas como observações independentes.
 4. **Variação ambiental:** só testar efeitos ambientais se houver variáveis ou períodos documentados adequados. Ruído e sensores ausentes introduzidos artificialmente serão identificados como testes de estresse, não como evidência de condições reais.
 5. **Comparabilidade externa:** só fazer avaliação entre bases quando a tarefa e as variáveis forem defensáveis. Não fundir sinais incompatíveis nem alegar transferência de domínio apenas por aplicar o mesmo código a bases diferentes.
 6. **Originalidade:** se a revisão revelar que a lacuna candidata já foi respondida, reformular a contribuição antes de desenvolver o método.
-7. **Aplicação brasileira:** avançar para validação nacional somente com autorização, metadados e avaliação independente adequados; caso contrário, manter essa etapa como perspectiva futura.
+7. **Aplicação brasileira remota:** avançar somente se dados nacionais digitais puderem ser fornecidos/acessados remotamente, com autorização, metadados e avaliação independente. Sem essas condições, manter como perspectiva futura, sem coleta presencial.
 
 ### 5.3 Baselines e avaliação
 
@@ -78,21 +80,21 @@ Após a auditoria será selecionado um benchmark principal. Serão reproduzidos 
 
 As métricas dependerão da tarefa final. Para classificação de estado poderão incluir sensibilidade, especificidade, precisão, revocação, F1 e medidas balanceadas; para detecção de anomalia, curvas de desempenho e taxas de falso alarme; para confiabilidade, calibração e risco versus cobertura, quando aplicáveis. Serão apresentados resultados por cenário e classe, não apenas médias agregadas. O custo incluirá tempo, memória e quantidade de dados rotulados para adaptação.
 
-Sementes, divisões, transformações, hiperparâmetros e limiares serão documentados. A unidade de reamostragem e os intervalos de confiança respeitarão a estrutura dos dados; não se fará inferência tratando cada janela temporal ou amostra correlacionada como independente. A eventual revisão de casos será feita com especialista em estruturas/SHM.
+Sementes, divisões, transformações, hiperparâmetros e limiares serão documentados. A unidade de reamostragem e os intervalos de confiança respeitarão a estrutura dos dados; não se fará inferência tratando cada janela temporal ou amostra correlacionada como independente. Eventual revisão técnica será feita remotamente com especialista em estruturas/SHM.
 
 ### 5.4 Python, estatística e componente geoespacial
 
-Python será utilizado para ingestão, validação, processamento, experimentação, análise estatística e documentação reproduzível. Metadados geoespaciais poderão apoiar a descrição de localização, tipo estrutural e cobertura dos conjuntos, caso existam e possam ser usados. Essa análise não substituirá a validação estrutural e não será usada para inferir representatividade nacional a partir de poucas pontes estrangeiras.
+Python será utilizado para ingestão, validação, processamento, experimentação, análise estatística e documentação reproduzível, em estação local, infraestrutura institucional acessada remotamente ou nuvem, conforme a necessidade. Metadados geoespaciais poderão apoiar a descrição de localização, tipo estrutural e cobertura dos conjuntos, caso existam e possam ser usados. Essa análise não substituirá a validação estrutural e não será usada para inferir representatividade nacional a partir de poucas pontes estrangeiras.
 
 ### 5.5 Etapas, recursos e riscos
 
 - **Etapa 1:** revisão focalizada, triagem integral dos catálogos NEES/post-NEES e auditoria aprofundada dos candidatos.
 - **Etapa 2:** escolha da tarefa e base principal; reprodução dos baselines e fixação do protocolo estatístico.
 - **Etapa 3:** testes de confiabilidade, variação ambiental/instrumental e método candidato, se justificado.
-- **Etapa 4:** avaliação externa compatível e, se houver dados/parceria, piloto brasileiro.
+- **Etapa 4:** avaliação externa compatível e, se houver dados/parceria remota, piloto brasileiro exclusivamente com arquivos digitais autorizados.
 - **Etapa 5:** síntese, publicação, código e documentação conforme licenças, redação da tese.
 
-As bases de sinais podem ser processadas com CPU e armazenamento moderados, mas arquivos brutos ou alta frequência podem exigir espaço adicional. O dimensionamento será feito com piloto de leitura, memória e tempo; GPU não será requisito presumido. Riscos centrais incluem dados indisponíveis, benchmark antigo ou muito explorado, falta de rótulos, escassez de estruturas independentes, efeitos ambientais não observáveis e ausência de acesso a dados nacionais. As decisões de contingência estão definidas nos portões acima.
+As bases de sinais podem ser processadas com CPU e armazenamento moderados, mas arquivos brutos ou alta frequência podem exigir espaço adicional. O dimensionamento será feito com piloto remoto de leitura, memória e tempo; GPU não será requisito presumido. Riscos centrais incluem dados indisponíveis remotamente, benchmark antigo ou muito explorado, falta de rótulos, escassez de estruturas independentes, efeitos ambientais não observáveis e ausência de dados nacionais digitais autorizados. As decisões de contingência estão definidas nos portões acima.
 
 ## 6. Referências Bibliográficas
 
@@ -108,4 +110,4 @@ As bases de sinais podem ser processadas com CPU e armazenamento moderados, mas 
 
 ---
 
-**Validações pendentes:** linha e orientação vigentes no PECC; auditoria dos registros e arquivos DataCenterHub; acesso e termos do Z24; adequação do Hell Bridge à pergunta final; revisão da originalidade frente à literatura recente; acesso a especialista em SHM; disponibilidade de dados brasileiros e metadados geoespaciais.
+**Validações pendentes:** linha e orientação vigentes no PECC; auditoria dos registros e arquivos DataCenterHub; acesso remoto e termos do Z24; adequação do Hell Bridge à pergunta final; revisão da originalidade frente à literatura recente; consulta remota a especialista em SHM; disponibilidade remota de dados brasileiros e metadados geoespaciais. O desenho exclui coleta e atividades presenciais.
