@@ -6,18 +6,21 @@ Preparar uma proposta de trabalho e pesquisa para candidatura ao doutorado no PE
 
 ## Direção de pesquisa em discussão
 
-Recorte promissor: métodos robustos e estatisticamente avaliados de visão computacional multimodal para identificar e caracterizar danos em imagens de inspeção de pontes, usando modelos pré-treinados (por exemplo, modelos de visão e linguagem) e saídas estruturadas vinculadas às evidências visuais.
+**Direção prioritária atual (provisória):** confiabilidade e generalização de métodos de aprendizado de máquina para monitoramento da saúde estrutural (SHM) de pontes sob variações ambientais, operacionais e instrumentais. A pergunta candidata é: como avaliar a confiabilidade desses métodos quando mudam as condições ambientais e operacionais ou a disponibilidade dos sensores, e quando o sistema deve sinalizar incerteza em vez de emitir uma classificação conclusiva?
 
-A contribuição de doutorado deve ir além de comparar modelos prontos. Pode investigar generalização entre conjuntos de dados/domínios, dados escassos e desbalanceados, calibração e quantificação de incerteza, e avaliar se adaptação eficiente ou aumento sintético de dados melhora o desempenho em dados reais. IA generativa não deve produzir relatórios livres sem validação e sem referências às evidências.
+A contribuição deve ir além de comparar modelos prontos: pretende-se construir um protocolo reproduzível e investigar, após auditoria e revisão de originalidade, estratégias de calibração, quantificação de incerteza, detecção de mudança ou decisão seletiva. A rota visual (dacl10k/dacl1k e bases relacionadas) permanece como alternativa; não se propõe fusão de imagens e sensores, pois não há pareamento confirmado entre esses acervos.
 
-A análise estatística pode incluir partições de treino/teste por ponte para evitar vazamento, validação cruzada entre bases, intervalos de confiança, comparação de modelos, análise por classe e domínio, calibração e métodos de incerteza. As técnicas finais dependem da pergunta de pesquisa e devem ser acordadas com os orientadores.
+A análise estatística deve respeitar a unidade independente real (ensaio, período, estrutura ou grupo documentado), evitar vazamento, reportar resultados por cenário e incluir incerteza, falsos alarmes, custo e limites de generalização. Ruído ou sensores removidos artificialmente devem ser descritos como testes de estresse, não como observações de condições reais.
 
 ## Dados e repositórios para investigar
 
-- [DataCenterHub / legado NEES](https://datacenterhub.org/nees.html): repositório histórico com dados de ensaios estruturais, terremotos, pontes e monitoramento. A disponibilidade, licença, formato e metadados precisam ser conferidos conjunto a conjunto; alguns dados podem estar em arquivos compactados ou indisponíveis em repositórios sucessores.
+- [DataCenterHub / Legacy NEES](https://datacenterhub.org/nees.html) e [post-NEES](https://datacenterhub.org/post-nees.html): catálogos heterogêneos de bases/projetos; deve-se fazer triagem de todos os registros e auditoria detalhada apenas dos candidatos a SHM/monitoramento de pontes. Não presumir licença, acesso ou adequação a partir do título.
+- [DataCenterHub 257 — Structural Control and Monitoring Benchmark Problems](https://datacenterhub.org/resources/257): coleção de problemas de referência com documentação e arquivos MATLAB/simulação; inclui problemas diversos e já bastante estudados, não uma base uniforme de sinais de pontes.
+- [DataCenterHub 264 — Projects Suitable for SHM and Model Updating Research](https://datacenterhub.org/resources/264): catálogo de projetos potencialmente relevantes a SHM/model updating; cada conjunto exige verificação própria.
 - [NTNU — dados abertos de monitoramento estrutural](https://www.ntnu.edu/kt/open-data): séries de sensores de pontes como Hardanger, Bergsøysund, Gjemnessund e Hell; é mais apropriado para SHM e sinais do que para visão computacional de danos.
 - [DesignSafe / NHERI Data Depot](https://www.designsafe-ci.org/): dados de engenharia de riscos naturais e ensaios experimentais, potencial fonte complementar.
-- [Hell Bridge Test Arena — Zenodo](https://zenodo.org/records/14632942): respostas dinâmicas sob estados de referência e danos impostos.
+- [Hell Bridge Test Arena — Zenodo](https://zenodo.org/records/14632942): ponte de aço em escala real, estados de referência e danos impostos, sinais dinâmicos em HDF5; candidata a base experimental principal, sujeita à auditoria da tarefa, documentação e licença.
+- [Z24 — KU Leuven](https://bwk.kuleuven.be/bwm/z24): monitoramento de longo prazo, variabilidade ambiental e ensaios progressivos de dano; dados obtidos mediante solicitação e termos próprios.
 - [dacl10k](https://openaccess.thecvf.com/content/WACV2024/papers/Flotzinger_dacl10k_Benchmark_for_Semantic_Bridge_Damage_Segmentation_WACV_2024_paper.pdf) e [Cambridge Bridge Inspection Dataset](https://www.repository.cam.ac.uk/items/f73994b0-b86f-4007-b0b0-cd0179c6f865): candidatos para inspeção visual anotada.
 
 Não presumir que dados de sensores e imagens possam ser vinculados entre si. Rótulos de dano em imagens não equivalem a relatórios narrativos; geração de descrições técnicas precisaria de referências textuais adequadas e revisão por especialistas.
@@ -26,11 +29,11 @@ Não presumir que dados de sensores e imagens possam ser vinculados entre si. R�
 
 A pesquisa é factível como trabalho computacional remoto, desde que o escopo fique delimitado, as licenças permitam o uso e exista acesso a GPU (universitária, compartilhada ou nuvem), armazenamento e orientação adequada em Computação e engenharia estrutural. Modelos pré-treinados e adaptação eficiente podem evitar treinamento de fundações do zero. Revisão especializada de uma amostra será necessária para afirmações técnicas sobre danos.
 
-Sem conjunto público brasileiro representativo e licenciado para teste, os resultados devem ser apresentados como avaliação metodológica em bases internacionais, sem alegar validação para OAEs brasileiras. Um ramo de séries de sensores pode ser estudo complementar, mas combinar desde o início imagens, geração de relatórios, SHM, previsão de deterioração e validação nacional tende a tornar a tese ampla demais.
+Sem dados brasileiros autorizados e representativos, os resultados devem ser apresentados como avaliação metodológica em bases internacionais, sem alegar validação para OAEs brasileiras. A aplicação nacional é uma etapa condicional a parceria, acesso, metadados e avaliação independente. Python e estatística são centrais ao pipeline; análise geoespacial pode descrever proveniência e representatividade se os metadados permitirem, mas não será eixo autônomo. Combinar desde o início visão, sensores, geração de relatórios, previsão de deterioração e validação nacional ampliaria excessivamente a tese.
 
 ## Requisitos da proposta PECC
 
-Conforme o edital PECC 01/2026 consultado na conversa, o plano tem limite de 10 páginas e requer Introdução, Justificativa, Objetivos, Revisão da Literatura, Metodologia e Referências. A avaliação enfatiza contextualização/relevância/atualidade bibliográfica, metodologia e aderência às linhas do programa. Confirmar os requisitos no edital vigente antes da submissão.
+O PDF local identifica-se internamente como Edital PECC nº 01/2027. O plano de doutorado tem limite de 10 páginas, A4, espaço 1,5, Times New Roman 12, requer Introdução, Justificativa, Objetivos, Revisão da Literatura, Metodologia e Referências, e deve manter anônimas as páginas após a capa. A avaliação do plano é eliminatória (mínimo 7,0), com pesos 4/3/3 para relevância/bibliografia, metodologia e aderência ao PECC. A linha atual e a orientação devem ser confirmadas.
 
 ## Próximos passos
 
@@ -49,3 +52,13 @@ Conforme o edital PECC 01/2026 consultado na conversa, o plano tem limite de 10 
 3. Escolher uma pergunta principal e critérios de avaliação após a auditoria dos dados.
 4. Definir o desenho estatístico, os baselines, validação entre domínios e métricas antes dos experimentos.
 5. Redigir a proposta conforme o edital vigente, com contribuições, limitações e cronograma compatíveis com doutorado.
+
+### Atualização de 05/11/2026 — mudança da rota prioritária
+
+- Após comparação de aderência ao currículo e das bases candidatas, a rota prioritária passou a ser **SHM de pontes**, com foco em confiabilidade/generalização sob variação ambiental, operacional e instrumental. A proposta visual anterior permanece como alternativa, não como núcleo concorrente.
+- Foi iniciado o rascunho `pre-projeto-doutorado-pecc-v2-shm.md`, organizado nas seis seções exigidas pelo Edital PECC nº 01/2027. Não está pronto para submissão: originalidade, dados, linha e orientação seguem pendentes.
+- Os endereços `nees.html` e `post-nees.html` estão acessíveis; o link de visualizador específico anteriormente enviado retornou 404. O recurso 257 é uma coleção heterogênea de benchmarks; o recurso 264 é catálogo de projetos para SHM/model updating. Nenhum deve ser tratado como base única auditada.
+- Candidatos externos: Hell Bridge Test Arena (dados experimentais com danos impostos, acesso aberto CC BY 4.0 no registro consultado); Z24 (monitoramento ambiental e dano progressivo, sujeito a solicitação e termos); NTNU (monitoramento de pontes, mas sem assumir rótulos de dano).
+- **Plano de auditoria pendente:** triar todos os registros dos catálogos NEES/post-NEES; aprofundar os candidatos SHM de pontes; verificar acesso/licença/formatos/labels; revisar os artigos e baselines associados; escolher tarefa/base principal apenas após esses portões.
+- Aplicação brasileira é fase condicional a parceria, autorização, dados e metadados adequados. Python e estatística integram o método; geoespacial é componente de caracterização de cobertura/proveniência se viável, não uma segunda pergunta.
+- Prazo constante do edital local: inscrições até **22/11/2026**. Planejamento deve reservar tempo para confirmação com orientador, revisão bibliográfica e revisão formal/anônima do plano.

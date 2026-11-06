@@ -4,9 +4,9 @@ Data da análise: 5 de novembro de 2026. Esta nota fundamenta a escolha do tema 
 
 ## 1. Decisão de pesquisa
 
-**Recomendação:** investigar a confiabilidade de modelos de visão computacional para reconhecer e localizar danos em imagens de inspeção de pontes quando mudam a ponte, a origem dos dados ou as condições de aquisição. A pergunta central proposta é: **como detectar quando um modelo de danos visuais deixa de ser confiável fora do domínio em que foi treinado, e como reduzir esse erro com adaptação eficiente e avaliação estatística?**
+**Recomendação atualizada em 05/11/2026:** priorizar a confiabilidade e generalização de métodos de aprendizado de máquina para monitoramento da saúde estrutural (SHM) de pontes sob variações ambientais, operacionais e instrumentais. Pergunta candidata: **como avaliar a confiabilidade desses métodos quando mudam as condições ambientais/operacionais ou a disponibilidade dos sensores, e quando devem sinalizar incerteza?** A recomendação é provisória e depende de auditoria dos catálogos DataCenterHub e das bases experimentais.
 
-A contribuição doutoral potencial é um protocolo reproduzível de avaliação entre bases, acompanhado de um método de calibração, detecção de mudança de domínio ou adaptação eficiente que demonstre melhora estatisticamente sustentada em dados externos. O método ainda precisa ser definido após auditoria dos rótulos e metadados. Publicar somente uma comparação de modelos prontos seria insuficiente. Uma aplicação de PLN ou IA agêntica pode ser estudo posterior, desde que haja textos de referência, hipótese mensurável e revisão técnica; não integra a pergunta principal.
+A contribuição doutoral potencial é um protocolo reproduzível de avaliação de risco de erro e incerteza em SHM, acompanhado de um método de calibração, detecção de mudança ou decisão seletiva somente se a revisão e os dados justificarem originalidade. Publicar somente uma comparação de modelos prontos seria insuficiente. A rota de visão computacional continua como alternativa condicional; PLN, IA agêntica e fusão visão-sensores não integram a pergunta principal.
 
 **Juízo preliminar:** alto potencial de relevância científica e aplicação em inspeções, com dificuldade **média a alta** e viabilidade **condicional**. A originalidade e o impacto não estão garantidos pelo tema. Exigem revisão atualizada, acesso aos dados, um problema de generalização demonstrável e resultado superior a baselines fortes. A disponibilidade de identificadores de ponte e a compatibilidade de rótulos entre bases são os principais pontos de decisão.
 
@@ -34,9 +34,11 @@ Fonte local: `referencias/Edital_PECC_01_2026_05_0_2026_R06_assinado.pdf`. Exemp
 | [dacl1k](https://www.sciencedirect.com/science/article/pii/S0952197624012648) e [toolkit](https://github.com/phiyodr/building-inspection-toolkit) | 1.474 imagens; tarefa de classificação multirrótulo, descrita como teste em condições reais | Avaliação externa para rótulos compatíveis em nível de imagem | Licença, disponibilidade efetiva, correspondência de classes e sobreposição com dacl10k |
 | [CODEBRIM](https://zenodo.org/records/2620293) | Imagens originais com caixas e versões recortadas/classificação; quatro arquivos de dados somam 36,4 GB, com versões alternativas do mesmo conjunto | Avaliação externa complementar | Licença no arquivo `license.md`, identidade das pontes e duplicatas entre versões |
 | [Cambridge Bridge Inspection Dataset](https://www.repository.cam.ac.uk/items/f73994b0-b86f-4007-b0b0-cd0179c6f865/full) | ZIP público de 27,63 MB, CC BY 4.0 | Piloto ou teste externo pequeno | Rótulos, quantidade efetiva, identificadores e adequação à pergunta |
-| [NEES / DataCenterHub](https://datacenterhub.org/resources/257) | Problemas de referência em controle e SHM, com documentação e arquivos MATLAB/simulação conforme o registro | Rota alternativa em sinais/modelagem | Link antigo do usuário retornou 404 no acesso web; conferir downloads individuais, licença e relevância para pontes |
-| [Hell Bridge Test Arena](https://zenodo.org/records/14632942) | Ponte de aço experimental, estados de dano impostos, aceleração/deformação, arquivo HDF5 de 2,5 GB a 100 Hz | Rota alternativa de detecção de dano em sinais | Generalização além da ponte experimental e licença específica |
-| [NTNU](https://www.ntnu.edu/kt/open-data) | Portal lista Hardanger, Bergsøysund, Gjemnessund e Hell; [Bergsøysund](https://zenodo.org/records/8051201) inclui arquivos HDF5 de 8,2 e 39,3 GB | Rota alternativa em séries de sensores | Estados de dano rotulados; tamanho e custo de armazenamento variam muito |
+| [NEES / DataCenterHub 257](https://datacenterhub.org/resources/257) | Coleção de problemas de benchmark em controle/monitoramento com documentação e arquivos MATLAB/simulação; não é conjunto uniforme de sinais de pontes | Baselines e identificação de candidatos após triagem do catálogo | Problemas heterogêneos e extensamente estudados; arquivos, termos e adequação devem ser verificados por problema |
+| [DataCenterHub 264](https://datacenterhub.org/resources/264) | Catálogo de projetos que podem ser pertinentes a SHM/model updating | Descoberta e triagem de conjuntos candidatos | Cada projeto exige auditoria individual de acesso, licença, dados e rótulos |
+| [Hell Bridge Test Arena](https://zenodo.org/records/14632942) | Ponte de aço em escala real em instalação experimental; estados de referência e danos impostos; dados HDF5 de 2,5 GB, 100 Hz; registro CC BY 4.0 | Candidata a base experimental principal, condicionada à adequação da tarefa | Não representa ponte em serviço ou Brasil; verificar cenários, independência e adequação a análise ambiental |
+| [Z24](https://bwk.kuleuven.be/bwm/z24) | Monitoramento de longo prazo, variáveis ambientais e ensaios progressivos de dano | Candidata a validação ambiental/externa, se acesso concedido | Requer solicitação e cumprimento de termos não comerciais; benchmark muito estudado |
+| [NTNU](https://www.ntnu.edu/kt/open-data) | Dados de monitoramento de pontes Hardanger, Bergsøysund, Gjemnessund e Hell, com vento/aceleração e outras variáveis conforme o conjunto | Estudo de variabilidade ambiental/operação | Não assumir estados de dano rotulados; arquivos grandes e estruturas diferentes |
 
 **Limite importante:** imagens e sensores desses acervos não estão pareados por ponte. Não se deve propor fusão multimodal direta sem fonte que forneça alinhamento real. Da mesma forma, diferenças entre máscaras, caixas e rótulos de imagem exigem uma tarefa comum previamente definida; resultados entre tarefas distintas não são comparáveis diretamente.
 
@@ -44,8 +46,8 @@ Fonte local: `referencias/Edital_PECC_01_2026_05_0_2026_R06_assinado.pdf`. Exemp
 
 | Rota | Potencial científico | Risco principal | Recurso computacional | Decisão |
 |---|---|---|---|---|
-| Confiabilidade de inspeção visual sob mudança de domínio | Alto se houver avanço metodológico e avaliação externa rigorosa | Metadados por ponte e rótulos incompatíveis | GPU útil; não exige treinar modelo fundacional do zero | **Prioritária, condicionada à auditoria** |
-| Detecção de dano por séries de sensores | Alto para SHM, com vínculo claro a Estruturas | Estados de dano em poucas estruturas; efeito de ambiente e operação | CPU pode bastar para baselines; GPU para deep learning | Plano alternativo se a rota visual falhar |
+| Confiabilidade de SHM por sinais de sensores | Alto se houver contribuição além dos benchmarks conhecidos e desenho válido | Acesso, rótulos, pequena quantidade de estruturas independentes e confusão entre dano/ambiente | CPU pode bastar para baselines; GPU não presumida | **Prioritária provisória, condicionada à auditoria** |
+| Confiabilidade de inspeção visual sob mudança de domínio | Potencial alto com avaliação externa rigorosa | Metadados por ponte e rótulos incompatíveis | GPU útil; não exige treinar modelo fundacional do zero | Alternativa se auditoria SHM falhar ou revelar pouca originalidade |
 | Plataforma integrada de visão, SHM, PLN e agentes | Potencial aplicado, mas contribuição causal difícil de isolar | Dados não pareados, validação especializada e escopo excessivo | Alto e variável | Não indicada como pergunta principal |
 
 O problema central deve medir desempenho por classe e por domínio, calibração/incerteza, falhas em dados externos e custo de adaptação. Partições devem ser por ponte ou outra unidade de origem quando a identificação existir; se não existir, declarar a limitação e usar separação por fonte e busca de duplicatas. Intervalos de confiança devem respeitar a unidade independente disponível. Um especialista em pontes deve revisar uma amostra de erros relevantes para evitar interpretação estrutural indevida. Sem dados brasileiros representativos, a tese não poderá alegar validação para OAEs brasileiras.
@@ -66,11 +68,11 @@ Não há justificativa inicial para comprar hardware de ponta. Antes da aquisiç
 
 ## 6. Portões de viabilidade e próximos passos
 
-1. Confirmar pelo menos uma base principal acessível, licença compatível e anotações reproduzíveis.
-2. Verificar se existe unidade de agrupamento por ponte ou origem; documentar duplicatas e limites de independência.
-3. Escolher uma tarefa comum com rótulos equivalentes em ao menos uma base externa. Se isso falhar, formular a contribuição com avaliação interna por domínio explicitamente delimitada, sem prometer validação entre bases.
-4. Reproduzir um baseline leve e medir uso de recursos antes de fixar arquitetura e máquina.
-5. Revisar bibliografia recente para localizar a lacuna concreta; pactuar a linha e a supervisão em Estruturas e Computação.
-6. Redigir o plano de até 10 páginas com hipótese, contribuições, método, riscos e cronograma; revisar anonimização e documentos de inscrição antes de 22/11/2026.
+1. Triar todos os registros NEES/post-NEES por estrutura, dados e relevância; auditar em profundidade candidatos SHM de pontes.
+2. Confirmar pelo menos uma base principal acessível, licença compatível, documentação e tarefa com estados/critério de avaliação.
+3. Revisar estudos já publicados para definir se existe lacuna original nos benchmarks; trocar pergunta/base se não houver.
+4. Reproduzir um baseline leve e verificar divisão independente, vazamento e custo.
+5. Solicitar acesso ao Z24 e confirmar orientação/linha no PECC; manter a aplicação brasileira como condicional.
+6. Finalizar o plano de até 10 páginas conforme o edital, com hipótese, método, contingências, cronograma e anonimização antes de 22/11/2026.
 
 Esta nota é deliberadamente **preliminar**: a elegibilidade dos conjuntos, a originalidade exata da contribuição e a configuração de GPU exigem auditoria de arquivos e revisão sistemática antes de se tornarem afirmações definitivas na proposta.
