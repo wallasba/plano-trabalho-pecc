@@ -4,7 +4,7 @@ Programa de Pós-Graduação em Estruturas e Construção Civil
 
 Plano de Trabalho e Pesquisa • Doutorado
 
-# Transferência adaptativa de aprendizado para prever a condição de superestruturas de pontes em redes com poucos históricos de inspeção
+# Transferência de aprendizado para prever a condição da superestrutura de pontes rodoviárias com poucos registros locais de inspeção
 
 Wallas Borges Araújo
 
@@ -18,80 +18,74 @@ Brasília, novembro de 2026
 
 ## 1. Introdução
 
-Uma equipe de gestão de pontes precisa decidir quais estruturas merecem reavaliação técnica antes de conhecer o resultado da próxima inspeção. Duas pontes com a mesma nota atual podem apresentar trajetórias distintas. O material e a tipologia da superestrutura, a idade da obra, o intervalo previsto entre inspeções e o histórico de mudanças de nota ajudam a formular essa previsão. Em redes com poucos registros, há poucas oportunidades de observar transições para as condições de maior interesse.
+Na gestão de obras de arte especiais (OAEs), a equipe precisa decidir quais estruturas merecem reavaliação técnica antes de conhecer o resultado da próxima inspeção. Este estudo se concentra nas pontes rodoviárias. Duas estruturas com a mesma nota atual podem apresentar trajetórias distintas. O material e a tipologia da superestrutura, a idade da obra, o intervalo programado entre inspeções e o histórico de mudanças de nota ajudam a formular essa previsão. Com poucos registros locais, há menos exemplos de transições entre categorias de condição.
 
-Históricos de outras redes oferecem exemplos adicionais. Entretanto, o desempenho obtido na origem pode se perder no destino quando mudam as tipologias predominantes, as práticas de manutenção ou a atribuição das notas. A pesquisa irá prever a distribuição das possíveis notas da superestrutura na próxima inspeção registrada. O significado físico da nota é o da condição atribuída ao componente pelo procedimento de inspeção. A avaliação de capacidade resistente exigiria outras observações e outro modelo.
+Históricos de outros inventários oferecem exemplos adicionais. Entretanto, o desempenho obtido na origem pode se perder no destino quando mudam as tipologias predominantes, as práticas de manutenção ou a atribuição das notas. A pesquisa irá prever a distribuição da nota ordinal de condição da superestrutura na próxima inspeção rotineira registrada no National Bridge Inventory (NBI). A nota, registrada no item 59, representa a condição física dos elementos estruturais considerados pelo procedimento de inspeção [1]. A avaliação da capacidade resistente exigiria outras observações e outro modelo.
 
-**Pergunta de pesquisa.** Em redes com poucos históricos locais, quanto peso deve receber a experiência de outras redes para prever a próxima nota da superestrutura, e em quais condições esse compartilhamento aumenta o erro?
+**Pergunta de pesquisa.** Em um estado com poucos registros locais, quanto peso devem receber as previsões obtidas com dados de outros estados ao prever a próxima nota da superestrutura? Em quais condições essa combinação aumenta o erro?
 
-**Hipótese.** Regular o peso externo segundo o erro ordinal observado em inspeções anteriores do destino e a incerteza dessa estimativa reduzirá a magnitude das perdas por transferência negativa, preservando parte dos ganhos quando as redes forem compatíveis. A hipótese será confrontada com previsões futuras em estados tratados como novos destinos.
+**Hipótese.** Penalizar a incerteza da diferença de erro entre a previsão combinada e a previsão local reduzirá a magnitude das perdas por transferência negativa em relação à mesma combinação sem penalidade. A hipótese será avaliada em inspeções reservadas de estados tratados como novos destinos.
 
 ## 2. Justificativa
 
-Para o gestor, interessa reconhecer quando o histórico local já sustenta uma decisão e quando a informação externa melhora a interpretação de uma nota antiga. Para o PECC, a questão envolve modelar a evolução observada de um componente estrutural e quantificar os limites de um método computacional sob escassez de inspeções. O trabalho relaciona a previsão ao tipo de superestrutura e às condições sob as quais foi produzida a informação de campo. A avaliação por material e tipologia permitirá localizar eventuais perdas que uma média da rede encobriria.
-
-<!-- página -->
+Para o gestor, interessa reconhecer quando o histórico local já sustenta uma decisão e quando a informação externa melhora a previsão baseada na última nota. Para o PECC, a questão envolve modelar a evolução observada de um componente estrutural e quantificar os limites de um método computacional com poucos registros de inspeção. A avaliação por material e tipologia permitirá identificar perdas de desempenho que uma média estadual poderia encobrir.
 
 ## 3. Objetivos
 
-**Objetivo geral.** Desenvolver e avaliar um método de transferência adaptativa para prever probabilisticamente a condição da superestrutura de pontes rodoviárias na próxima inspeção.
+**Objetivo geral.** Desenvolver e avaliar um método de transferência adaptativa de aprendizado para prever a distribuição da nota ordinal de condição da superestrutura de pontes rodoviárias na próxima inspeção rotineira registrada.
 
 **Objetivos específicos**
 
 1. Reconstruir históricos comparáveis por ponte, distinguindo novas inspeções, republicações e alterações cadastrais.
-2. Estimar a contribuição dos dados externos por uma regra de ponderação sensível à incerteza do erro local.
+2. Estimar o peso da previsão de origem por uma regra que considere a incerteza da diferença de erro em relação ao modelo local.
 3. Quantificar o benefício e a perda por transferência sob diferentes quantidades de dados locais, materiais e tipologias.
 4. Avaliar o uso retrospectivo das previsões na triagem para reavaliação técnica e estabelecer os requisitos para testar o método em acervos brasileiros.
 
 ## 4. Revisão da literatura
 
-Behrooz e Ilbeigi [1] modelaram a condição de pontes como uma variável ordinal e produziram previsões probabilísticas com históricos do inventário norte-americano. O caráter ordinal é decisivo para a engenharia. Prever uma categoria adjacente à observada tem implicações distintas de concentrar probabilidade em uma condição muito superior à registrada.
+Behrooz e Ilbeigi [2] produziram previsões probabilísticas ordinais para o ano seguinte com registros do NBI de Nova Jersey, Nova York e Connecticut. O caráter ordinal permite distinguir uma previsão próxima da nota observada de outra que atribui alta probabilidade a uma condição muito superior à registrada.
 
-Chen, Yuan e Lin [2] desenvolveram transferência hierárquica entre nove jurisdições canadenses. O estudo contempla redes pequenas, heterogeneidade entre agências e atributos parcialmente ausentes. Esse é o antecedente direto para o compartilhamento entre gestores. A questão que motiva este projeto é quanto o desempenho em inspeções locais anteriores permite ajustar esse compartilhamento quando o alvo é uma nota ordinal futura e os episódios de piora são escassos.
+Chen, Yuan e Lin [3] compartilharam parâmetros entre nove agências canadenses por transferência bayesiana hierárquica e modelaram a evolução do índice de condição da ponte (*Bridge Condition Index*, BCI). O estudo considera diferenças entre agências e a escassez de registros locais. O problema aqui é estimar quanto peso dar à previsão externa para a nota ordinal da superestrutura na próxima inspeção registrada.
 
-Yao e colaboradores [3] estimam pesos de combinação de distribuições a partir do desempenho preditivo fora da amostra. Sua extensão hierárquica [4] admite pesos que variam com os dados. Esses trabalhos fundamentam dois comparadores fortes. A contribuição a testar é o valor incremental de penalizar a incerteza do ganho de transferência estimada por ponte, em uma avaliação temporal e regional de transições de condição. O desenho permite reconhecer uma combinação convencional como suficiente, caso produza desempenho equivalente.
+Yao e colaboradores [4, 5] estimam pesos de combinação de distribuições pelo desempenho fora da amostra e permitem, na extensão hierárquica, que esses pesos variem com os dados. Gu, Lee e Duan [6] combinam previsões locais e de origem com base no desempenho em dados de validação do destino. Kim [7] avalia regras de combinação que incluem o modelo exclusivamente local entre os candidatos. Como o uso de dados externos pode aumentar o erro no destino, a comparação com um modelo exclusivamente local permite medir a transferência negativa [8].
 
-<!-- página -->
+A contribuição a testar é se penalizar a incerteza da diferença de erro em relação ao modelo local, estimada por reamostragem de pontes, reduz as perdas em estados e inspeções reservados. A comparação direta será com a mesma combinação de previsões sem penalidade.
+
+No Brasil, Souza e colaboradores [9] propuseram modelos de transição com matrizes de Markov a partir de inspeções de 885 pontes, complementadas por dados simulados. Em outro estudo, aplicaram um índice de deterioração à priorização de 2.134 pontes [10]. Esses antecedentes fundamentam o uso de previsões na gestão de estruturas e ajudam a situar a triagem retrospectiva proposta.
 
 ## 5. Metodologia
 
 ### 5.1 População, dados e evidência preliminar
 
-O estudo será longitudinal, retrospectivo e integralmente remoto. A fonte principal será o National Bridge Inventory (NBI), da Federal Highway Administration (FHWA). Os arquivos históricos no formato ASCII permitem trabalhar com uma convenção documental comum até 2025 [5, 6]. Cada estado representará uma rede de gestão para fins experimentais. A população elegível será composta por pontes rodoviárias com identificador recuperável e avaliação numérica da superestrutura em pelo menos duas datas distintas.
+O estudo será longitudinal, retrospectivo e integralmente remoto. A fonte principal será o NBI, mantido pela Federal Highway Administration (FHWA). Os arquivos históricos no formato ASCII seguem o guia de codificação até a edição de 2025 [1, 11, 12]. Cada inventário estadual reúne as pontes cadastradas no NBI para aquele estado. O estado será a unidade de agrupamento do experimento. Serão elegíveis pontes rodoviárias com identificador recuperável e nota numérica da superestrutura em pelo menos duas datas distintas, identificadas por mês e ano.
 
-A unidade de previsão será o par de inspeções consecutivas observadas da mesma ponte. A chave longitudinal combinará estado e número da estrutura (itens 1 e 8). A data de inspeção, a frequência programada e a nota da superestrutura correspondem aos itens 90, 91 e 59. Os identificadores serão preservados como texto. Para cada previsão será adotado um corte na edição do inventário disponível naquela ocasião. O modelo usará a última nota conhecida, o histórico anterior, o intervalo programado, o material, a tipologia, a idade e o vão quando disponíveis. A data efetiva da inspeção seguinte será utilizada para localizar o desfecho e avaliar diferenças de horizonte.
+A unidade de previsão será o par de inspeções rotineiras consecutivas registradas para a mesma ponte. A chave longitudinal combinará estado e número da estrutura (itens 1 e 8). O item 90 informa o mês e o ano da última inspeção rotineira, o item 91 registra o intervalo programado em meses e o item 59 contém a nota da superestrutura [1, 12]. Os identificadores serão preservados como texto. Para cada previsão, será usada a edição disponível na data de corte. O modelo receberá a última nota conhecida, o histórico anterior, o intervalo programado, o material, a tipologia, a idade e o vão, quando disponíveis. O mês e o ano da próxima inspeção registrada identificarão o desfecho e permitirão examinar diferenças de horizonte.
 
-**Piloto de viabilidade.** A leitura dos quatro arquivos de Delaware, de 2022 a 2025, encontrou respectivamente 872, 874, 872 e 874 registros. Considerando nota numérica e mês válido, 1.228 ocorrências repetiram uma combinação de estrutura e data já observada. Em 40 dessas ocorrências, a nota diferiu da versão anterior. Adotando a última ocorrência disponível para cada chave e data, 555 estruturas forneceram 784 pares de datas sucessivas. Houve 76 reduções, 77 aumentos e 631 permanências de nota. Essas contagens demonstram a possibilidade de construir o painel em um estado e dimensionam o desequilíbrio entre os desfechos. A origem das revisões e a cobertura em outros estados ainda exigem auditoria [5, 6].
+**Piloto de viabilidade.** A leitura dos quatro arquivos de Delaware, de 2022 a 2025, encontrou respectivamente 872, 874, 872 e 874 registros. Considerando nota numérica e mês válido, 1.228 ocorrências repetiram uma combinação de estrutura e data já observada. Em 40 dessas ocorrências, a nota diferiu da versão anterior. Adotando a última ocorrência disponível para cada chave e data, 555 estruturas forneceram 784 pares de datas sucessivas. Houve 76 quedas, 77 aumentos e 631 permanências de nota. Essas contagens demonstram a possibilidade de construir o painel em um estado e dimensionam o desequilíbrio entre os desfechos. A origem das revisões e a cobertura em outros estados ainda exigem auditoria [11, 12].
 
 Na análise principal serão excluídos pares com conflito de nota na mesma data ou indício de mudança de identidade da obra. A análise de sensibilidade repetirá a estimação com as revisões documentadas. Reconstruções identificáveis serão marcadas e os resultados examinados com e sem os intervalos correspondentes. Uma melhora de nota pode refletir reparo, variação de avaliação ou revisão de cadastro. A interpretação ficará limitada às mudanças registradas. Serão descritas também as pontes sem retorno observado, pois a frequência de inspeção pode estar associada à condição.
 
-<!-- página -->
-
 ### 5.2 Modelagem e contribuição proposta
 
-Em cada estado de destino, um modelo ordinal de transição fornecerá as probabilidades locais das notas futuras, condicionadas à última nota e aos atributos disponíveis. Um modelo da mesma família será ajustado com os estados de origem. O modelo local terá regularização para estabilizar as estimativas nas amostras pequenas. A combinação das duas distribuições será uma média ponderada, com peso externo entre zero e um. Em uma rede com modelos discordantes, esse peso determina quanto a previsão se afasta da experiência local.
+Em cada estado de destino, um modelo ordinal de transição fornecerá as probabilidades das notas futuras, condicionadas à última nota e aos atributos disponíveis. O modelo local será regularizado para estabilizar as estimativas em amostras pequenas. Um modelo da mesma família será ajustado com dados dos estados de origem. A transferência adaptativa combinará as distribuições preditivas dos dois modelos por uma média ponderada, com peso externo entre zero e um ajustado pelo desempenho em inspeções anteriores do destino.
 
-A regra candidata usará previsões retrospectivas produzidas em ordem temporal dentro do conjunto de desenvolvimento. Para cada peso candidato, será calculada a diferença entre o erro da combinação e o erro do modelo local nos mesmos exemplos. A regra escolherá o peso que minimize a perda média acrescida de uma penalidade proporcional ao erro-padrão da diferença, estimado por reamostragem de pontes. Assim, o método precisará de evidência mais consistente para atribuir peso alto a uma origem cujo benefício varia muito entre estruturas. O peso zero estará entre os candidatos. A intensidade da penalidade será escolhida em redes de desenvolvimento tratadas alternadamente como destinos e congelada antes da avaliação externa. O desempenho dessa escolha constitui a hipótese metodológica da tese.
+A regra candidata usará previsões retrospectivas produzidas em ordem temporal no conjunto de desenvolvimento. Para cada peso candidato, será calculada nas mesmas inspeções a diferença entre o escore probabilístico ordinal (*Ranked Probability Score*, RPS) da combinação e o do modelo local. A regra escolherá o peso que minimize a diferença média acrescida de uma penalidade proporcional ao erro padrão dessa diferença. O erro padrão será estimado reamostrando pontes inteiras, com todas as suas inspeções elegíveis. O peso externo zero reproduz a previsão exclusivamente local. A intensidade da penalidade será escolhida em estados de desenvolvimento tratados alternadamente como destinos e fixada antes da avaliação externa.
 
-Para isolar o efeito da regulação serão comparados a persistência da última nota, o modelo local, o ajuste conjunto sem diferenciação regional, o modelo aplicado diretamente da origem, o compartilhamento hierárquico de parâmetros e a combinação que minimiza o erro médio sem penalidade. Um comparador de combinação hierárquica verificará se o ganho pode ser explicado pela estabilização convencional dos pesos [2–4]. Cada estratégia terá acesso ao mesmo conjunto local. A política para ausência completa de históricos será avaliada separadamente como previsão de origem, pois não há erro local observável para calibrar a regra.
-
-<!-- página -->
+Para isolar o efeito da penalidade, a combinação sem penalidade usará as mesmas previsões, inspeções e opções de peso, incluindo o peso zero. As demais referências serão a persistência da última nota, o modelo exclusivamente local, o ajuste conjunto sem distinção entre estados, o modelo aplicado diretamente da origem, o compartilhamento hierárquico de parâmetros e a combinação hierárquica de previsões [3–7]. Cada estratégia terá acesso ao mesmo conjunto local. A ausência completa de históricos será avaliada separadamente pela aplicação direta do modelo de origem, pois a calibração do peso exige desfechos locais observados.
 
 ### 5.3 Experimento e medida principal
 
 Cada rodada reservará um estado como destino. Os anos iniciais fornecerão o histórico de desenvolvimento, um período posterior permitirá calibração local e as inspeções finais constituirão o teste. Dados dos estados de origem respeitarão a mesma data de corte. A escassez será simulada por subamostras de pontes locais com todos os seus registros elegíveis. Os tamanhos serão definidos a partir das contagens do piloto ampliado e fixados antes do teste. Uma avaliação adicional reservará pontes inteiras do destino para mensurar desempenho em estruturas novas. O uso de uma ponte já conhecida no teste temporal exigirá que todos os seus atributos tenham sido registrados antes da previsão.
 
-O resultado principal será o Ranked Probability Score (RPS), calculado pela média, entre os limiares da escala, dos erros quadráticos entre a probabilidade acumulada prevista e o indicador acumulado observado. O escore preserva a ordem das notas e premia distribuições precisas. Quanto menor seu valor, melhor a previsão [7]. As perdas serão resumidas primeiro por ponte e depois por estado, atribuindo o mesmo peso às redes no resumo principal.
+O RPS será a medida principal. Para cada limiar entre categorias adjacentes, calcula-se a diferença entre a probabilidade prevista de uma nota até aquele limiar e o indicador de que a nota observada é igual ou inferior a ele. O RPS normalizado é a média dos quadrados dessas diferenças. Quanto menor o valor, melhor a previsão [13, 14]. Os escores serão resumidos primeiro por ponte e depois por estado. Cada estado terá o mesmo peso no resumo principal.
 
-Para cada estado e orçamento de dados locais, haverá transferência negativa quando o RPS médio do método superar o do modelo local nas mesmas inspeções. Serão relatadas a frequência, a magnitude e a incerteza dessas diferenças pareadas. A calibração será examinada comparando a probabilidade prevista de queda da nota com a frequência observada de quedas. Os resultados incluirão contagens por faixa de probabilidade, material, tipologia e condição inicial. Células com poucos eventos terão interpretação descritiva. A hipótese perderá sustentação se a penalização aumentar o erro médio sem reduzir perdas nas redes mais afetadas, ou se o compartilhamento convencional produzir resultados equivalentes dentro da precisão observada.
-
-<!-- página -->
+Para cada estado e tamanho da amostra local, haverá transferência negativa quando o RPS médio do método superar o do modelo exclusivamente local nas mesmas inspeções de teste. Serão relatadas a frequência, a magnitude e a incerteza dessas diferenças pareadas. A calibração será examinada comparando a probabilidade prevista de queda da nota com a frequência observada de quedas. Os resultados incluirão contagens por faixa de probabilidade, material, tipologia e nota inicial. Grupos com poucos eventos terão interpretação descritiva. A hipótese será examinada pela diferença de desempenho entre as combinações com e sem penalidade, considerando a redução das perdas por transferência e o efeito sobre o erro médio.
 
 ### 5.4 Uso público e aplicação ao Brasil
 
-A análise ilustrativa ordenará, a cada data de corte, as pontes elegíveis segundo a probabilidade prevista de piora. Com a mesma capacidade de revisão, a seleção será comparada com ordenações pela última nota e pela defasagem da última inspeção. A medida será a proporção de pioras posteriormente registradas que aparecia entre as pontes selecionadas. O benefício mensurável no estudo será a capacidade de localizar esses registros em uma revisão retrospectiva. A avaliação de redução de acidentes ou de custos de manutenção dependeria de um desenho prospectivo próprio.
+A análise ilustrativa ordenará, a cada data de corte, as estruturas elegíveis segundo a probabilidade prevista de queda da nota. Com a mesma capacidade de revisão, a seleção será comparada com ordenações pela última nota e pelo tempo desde a última inspeção. A medida será a proporção das quedas de nota posteriormente registradas que ocorreu em estruturas selecionadas para reavaliação. A avaliação de redução de acidentes ou de custos de manutenção exigiria um estudo prospectivo.
 
-O produto brasileiro será um protocolo para avaliar a aplicabilidade em acervos de obras de arte especiais. A ficha da DNIT 010/2024–PRO servirá de referência para documentar identificador, datas, tipologia, material, componente avaliado, critério de atribuição de nota e intervenções [8]. A correspondência entre escalas dependerá do significado técnico de cada classe. Com cadastro disponível, será estimada a cobertura dos atributos brasileiros nos dados de origem. Com inspeções sucessivas comparáveis e autorizadas, será feita avaliação externa temporal. Um inventário de outro país poderá cumprir esse mesmo papel se a documentação sustentar a equivalência do desfecho. O núcleo experimental utilizará arquivos públicos acessíveis a distância.
+O produto brasileiro será um protocolo para avaliar a aplicabilidade do método em acervos de OAEs. A ficha de inspeção rotineira expedita e os critérios de avaliação da DNIT 010/2024–PRO (anexos B a D) orientarão a documentação das estruturas, das inspeções, dos elementos avaliados e das notas [15]. A comparação entre a nota de 0 a 9 da superestrutura no NBI e as notas de 1 a 5 por elemento no procedimento do DNIT exigirá verificar quais elementos são avaliados e o significado técnico de cada categoria [1, 15]. Com cadastro disponível, será estimada a cobertura dos atributos brasileiros nos dados de origem. Com inspeções sucessivas compatíveis e autorizadas, será feita avaliação externa temporal. Um inventário de outro país poderá cumprir esse papel se a documentação sustentar a equivalência do desfecho. O núcleo experimental utilizará os arquivos públicos do NBI.
 
 ### 5.5 Cronograma e produtos
 
@@ -107,18 +101,32 @@ O produto brasileiro será um protocolo para avaliar a aplicabilidade em acervos
 
 ## 6. Referências bibliográficas
 
-[1] BEHROOZ, H.; ILBEIGI, M. An ordinal autoregressive deep learning model for probabilistic prediction of bridge deterioration condition levels. Structure and Infrastructure Engineering, 2025. DOI 10.1080/15732479.2025.2571872.
+[1] FEDERAL HIGHWAY ADMINISTRATION. *Recording and Coding Guide for the Structure Inventory and Appraisal of the Nation’s Bridges*. Washington, DC, 1995. FHWA-PD-96-001. www.fhwa.dot.gov/bridge/mtguide.pdf.
 
-[2] CHEN, W.; YUAN, A. X.-X.; LIN, P. Cross-jurisdictional collaborative deterioration modeling via hierarchical Bayesian transfer learning. Computer-Aided Civil and Infrastructure Engineering, v. 40, p. 6456–6474, 2025. DOI 10.1111/mice.70159.
+[2] BEHROOZ, H.; ILBEIGI, M. An ordinal autoregressive deep learning model for probabilistic prediction of bridge deterioration condition levels. *Structure and Infrastructure Engineering*, 2025. DOI 10.1080/15732479.2025.2571872.
 
-[3] YAO, Y.; VEHTARI, A.; SIMPSON, D.; GELMAN, A. Using stacking to average Bayesian predictive distributions (with discussion). Bayesian Analysis, 2018. DOI 10.1214/17-BA1091.
+[3] CHEN, W.; YUAN, A. X.-X.; LIN, P. Cross-jurisdictional collaborative deterioration modeling via hierarchical Bayesian transfer learning. *Computer-Aided Civil and Infrastructure Engineering*, v. 40, p. 6456–6474, 2025. DOI 10.1111/mice.70159.
 
-[4] YAO, Y.; PIRŠ, G.; VEHTARI, A.; GELMAN, A. Bayesian hierarchical stacking: some models are (somewhere) useful. arXiv, 2021. Identificador 2101.08954.
+[4] YAO, Y.; VEHTARI, A.; SIMPSON, D.; GELMAN, A. Using stacking to average Bayesian predictive distributions (with discussion). *Bayesian Analysis*, v. 13, n. 3, p. 917–1007, 2018. DOI 10.1214/17-BA1091.
 
-[5] FEDERAL HIGHWAY ADMINISTRATION. National Bridge Inventory: download NBI ASCII files. Arquivos estaduais de Delaware, edições 2022–2025. www.fhwa.dot.gov/bridge/nbi/ascii.cfm.
+[5] YAO, Y.; PIRŠ, G.; VEHTARI, A.; GELMAN, A. Bayesian hierarchical stacking: some models are (somewhere) useful. *Bayesian Analysis*, v. 17, n. 4, p. 1043–1071, 2022. DOI 10.1214/21-BA1287.
 
-[6] FEDERAL HIGHWAY ADMINISTRATION. NBI record format. Dicionário dos arquivos históricos. www.fhwa.dot.gov/bridge/nbi/format.cfm.
+[6] GU, T.; LEE, P. H.; DUAN, R. COMMUTE: Communication-efficient transfer learning for multi-site risk prediction. *Journal of Biomedical Informatics*, v. 137, art. 104243, 2023. DOI 10.1016/j.jbi.2022.104243.
 
-[7] GNEITING, T.; RAFTERY, A. E. Strictly proper scoring rules, prediction, and estimation. Journal of the American Statistical Association, v. 102, p. 359–378, 2007. DOI 10.1198/016214506000001437.
+[7] KIM, Y. Measuring negative transfer in multi-source learning: weight normalization, target-label budgets, and validation-based mixing. *Neurocomputing*, art. 135609, 2027. DOI 10.1016/j.neucom.2026.135609.
 
-[8] DNIT. Norma DNIT 010/2024–PRO. Inspeções em pontes, viadutos e passarelas rodoviárias. Brasília, 2024.
+[8] WANG, Z.; DAI, Z.; PÓCZOS, B.; CARBONELL, J. Characterizing and avoiding negative transfer. In: *IEEE/CVF Conference on Computer Vision and Pattern Recognition*, 2019. p. 11293–11302. DOI 10.1109/CVPR.2019.01155.
+
+[9] SOUZA, C. A. F. de et al. Probabilistic bridge deterioration prediction models based on Markov matrices using real and simulated data from deterministic models. *Revista IBRACON de Estruturas e Materiais*, v. 17, n. 1, 2024. DOI 10.1590/S1983-41952024000100015.
+
+[10] SOUZA, C. A. F. de et al. Bridge deterioration index for prioritizing interventions and planning inspections in Brazil. *Revista IBRACON de Estruturas e Materiais*, v. 19, n. 3, 2026. DOI 10.1590/S1983-41952026000100023.
+
+[11] FEDERAL HIGHWAY ADMINISTRATION. *National Bridge Inventory: download NBI ASCII files*. Arquivos históricos, incluindo as edições de Delaware de 2022 a 2025. www.fhwa.dot.gov/bridge/nbi/ascii.cfm.
+
+[12] FEDERAL HIGHWAY ADMINISTRATION. *NBI record format*. Leiaute dos arquivos históricos. www.fhwa.dot.gov/bridge/nbi/format.cfm.
+
+[13] EPSTEIN, E. S. A scoring system for probability forecasts of ranked categories. *Journal of Applied Meteorology*, v. 8, n. 6, p. 985–987, 1969. journals.ametsoc.org/view/journals/apme/8/6/1520-0450_1969_008_0985_assfpf_2_0_co_2.xml.
+
+[14] GNEITING, T.; RAFTERY, A. E. Strictly proper scoring rules, prediction, and estimation. *Journal of the American Statistical Association*, v. 102, n. 477, p. 359–378, 2007. DOI 10.1198/016214506000001437.
+
+[15] DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES. *DNIT 010/2024 – PRO: Inspeções em pontes e viadutos – Procedimento*. Brasília, DF, 2024. 22 p.
