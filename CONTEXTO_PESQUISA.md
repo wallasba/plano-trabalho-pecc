@@ -1,4 +1,4 @@
-﻿# Contexto da pesquisa — PECC
+# Contexto da pesquisa — PECC
 
 ## Objetivo
 
@@ -6,9 +6,9 @@ Preparar uma proposta de trabalho e pesquisa para candidatura ao doutorado no PE
 
 ## Direção adotada em 23/11/2026
 
-A opção A originou a versão `pre-projeto-doutorado-pecc-v3-transferencia` em Markdown, Word e PDF. O alvo é a nota ordinal da superestrutura na próxima inspeção. A contribuição em investigação é regular o peso da informação externa pelo erro preditivo no destino e pela incerteza estimada entre pontes. A literatura de referência inclui Chen, Yuan e Lin (2025) e as abordagens de combinação de distribuições preditivas de Yao e colaboradores.
+A opção A originou a versão `pre-projeto-doutorado-pecc-v3-transferencia` em Markdown, Word e PDF. O alvo é a nota ordinal da superestrutura de pontes e viadutos rodoviários na próxima inspeção. O recorte segue a DNIT 010/2024–PRO. Passarelas poderão compor uma análise independente se houver históricos adequados. Túneis e contenções ficam para trabalhos futuros. A contribuição em investigação é regular o peso da informação externa pelo erro preditivo no destino e pela incerteza estimada entre pontes. A literatura de referência inclui Chen, Yuan e Lin (2025) e as abordagens de combinação de distribuições preditivas de Yao e colaboradores.
 
-O piloto remoto dos arquivos NBI de Delaware (2022–2025) identificou 555 estruturas com ao menos duas datas elegíveis e 784 transições pela última versão observada, incluindo 76 pioras. A auditoria identificou 40 ocorrências de revisão da nota para a mesma chave e data. Falta ampliar o painel para vários estados, aplicar o controle de revisões e avaliar o ganho incremental por RPS. O protocolo de compatibilidade com o DNIT integra a entrega brasileira. A avaliação preditiva local depende de históricos autorizados e compatíveis.
+O piloto remoto dos arquivos NBI de Delaware (2022–2025) identificou 555 estruturas com ao menos duas datas elegíveis e 784 transições pela última versão observada, incluindo 76 pioras. A auditoria identificou 40 ocorrências de revisão da nota para a mesma chave e data. Essas contagens antecedem os filtros de tráfego, material e tipologia da versão revisada. Falta reaplicar os filtros, ampliar o painel para vários estados, aplicar o controle de revisões e avaliar o ganho incremental por RPS. O produto brasileiro é um protocolo de compatibilidade com o DNIT. A triagem será avaliada pelo número de quedas posteriores captadas com capacidade fixa de reavaliação e poderá subsidiar a programação de diagnósticos e estudos de investimentos. A avaliação preditiva local depende de históricos autorizados e compatíveis.
 
 A capa usa a linha “Métodos Numéricos e Computacionais Aplicados à Engenharia (Estruturas)”, divulgada pelo [ENC/UnB](https://enc.unb.br/pos-graduacao/). A denominação específica da seleção e a orientação disponível ainda requerem confirmação. O Edital nº 01/2027 é referência de estrutura e formatação. A data original de encerramento das inscrições foi 22/11/2026.
 
