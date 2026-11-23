@@ -4,9 +4,17 @@
 
 Preparar uma proposta de trabalho e pesquisa para candidatura ao doutorado no PECC, com orientação principal em Computação ou coorientação na área. O interesse é construir uma base forte em computação, inteligência artificial — incluindo IA generativa — e estatística, aplicadas a problemas de inspeção e monitoramento de pontes/obras de arte especiais (OAEs). A pesquisa deve priorizar dados abertos e públicos e ser compatível com execução remota.
 
-## Direção de pesquisa em discussão
+## Direção adotada em 23/11/2026
 
-**Direção prioritária atual (provisória):** confiabilidade e generalização de métodos de aprendizado de máquina para monitoramento da saúde estrutural (SHM) de pontes sob variações ambientais, operacionais e instrumentais. A pergunta candidata é: como avaliar a confiabilidade desses métodos quando mudam as condições ambientais e operacionais ou a disponibilidade dos sensores, e quando o sistema deve sinalizar incerteza em vez de emitir uma classificação conclusiva?
+A opção A originou a versão `pre-projeto-doutorado-pecc-v3-transferencia` em Markdown, Word e PDF. O alvo é a nota ordinal da superestrutura na próxima inspeção. A contribuição em investigação é regular o peso da informação externa pelo erro preditivo no destino e pela incerteza estimada entre pontes. A literatura de referência inclui Chen, Yuan e Lin (2025) e as abordagens de combinação de distribuições preditivas de Yao e colaboradores.
+
+O piloto remoto dos arquivos NBI de Delaware (2022–2025) identificou 555 estruturas com ao menos duas datas elegíveis e 784 transições pela última versão observada, incluindo 76 pioras. A auditoria identificou 40 ocorrências de revisão da nota para a mesma chave e data. Falta ampliar o painel para vários estados, aplicar o controle de revisões e avaliar o ganho incremental por RPS. O protocolo de compatibilidade com o DNIT integra a entrega brasileira. A avaliação preditiva local depende de históricos autorizados e compatíveis.
+
+A capa usa a linha “Métodos Numéricos e Computacionais Aplicados à Engenharia (Estruturas)”, divulgada pelo [ENC/UnB](https://enc.unb.br/pos-graduacao/). A denominação específica da seleção e a orientação disponível ainda requerem confirmação. O Edital nº 01/2027 é referência de estrutura e formatação. A data original de encerramento das inscrições foi 22/11/2026.
+
+## Histórico da direção de pesquisa anterior
+
+**Direção considerada na v2:** confiabilidade e generalização de métodos de aprendizado de máquina para monitoramento da saúde estrutural (SHM) de pontes sob variações ambientais, operacionais e instrumentais. A pergunta candidata era como avaliar a confiabilidade desses métodos quando mudam as condições ambientais e operacionais ou a disponibilidade dos sensores, e quando o sistema deve sinalizar incerteza em vez de emitir uma classificação conclusiva.
 
 A contribuição deve ir além de comparar modelos prontos: pretende-se construir um protocolo reproduzível e investigar, após auditoria e revisão de originalidade, estratégias de calibração, quantificação de incerteza, detecção de mudança ou decisão seletiva. A rota visual (dacl10k/dacl1k e bases relacionadas) permanece como alternativa; não se propõe fusão de imagens e sensores, pois não há pareamento confirmado entre esses acervos.
 
