@@ -18,13 +18,13 @@ Brasília, novembro de 2026
 
 ## 1. Introdução
 
-Na gestão de obras de arte especiais (OAEs), a equipe precisa decidir quais estruturas merecem reavaliação técnica antes de conhecer o resultado da próxima inspeção. O estudo abrange pontes e viadutos rodoviários de concreto armado, concreto protendido, aço ou construção mista, conforme o recorte da DNIT 010/2024–PRO [15]. A estrutura é a obra cadastrada. A previsão se refere à condição da sua superestrutura. Duas estruturas com a mesma nota atual podem apresentar trajetórias distintas. O material e a tipologia da superestrutura, a idade da obra, o intervalo programado entre inspeções e o histórico de mudanças de nota ajudam a formular essa previsão. Com poucos registros locais, há menos exemplos de transições entre categorias de condição.
+Ao planejar reavaliações técnicas de pontes e viadutos da malha rodoviária, a equipe precisa selecionar, com base nas inspeções já disponíveis, quais estruturas examinar primeiro. Entre as obras de arte especiais (OAEs), o estudo abrange pontes e viadutos de concreto armado, concreto protendido, aço ou construção mista [15]. A previsão se refere à superestrutura de cada obra cadastrada. Duas obras com a mesma nota atual podem apresentar trajetórias distintas. O material, a tipologia, a idade, o intervalo programado entre inspeções e o histórico de notas ajudam a caracterizar essas trajetórias. Em acervos pequenos, há poucos exemplos de mudança entre categorias de condição.
 
 Históricos de outros inventários oferecem exemplos adicionais. Entretanto, o desempenho obtido na origem pode se perder no destino quando mudam as tipologias predominantes, as práticas de manutenção ou a atribuição das notas. A pesquisa irá prever a distribuição da nota ordinal de condição da superestrutura na próxima inspeção rotineira registrada no National Bridge Inventory (NBI). A nota, registrada no item 59, representa a condição física dos elementos estruturais considerados pelo procedimento de inspeção [1]. A avaliação da capacidade resistente exigiria outras observações e outro modelo.
 
 **Pergunta de pesquisa.** Em um estado com poucos registros locais, quanto peso devem receber as previsões obtidas com dados de outros estados ao prever a próxima nota da superestrutura? Em quais condições essa combinação aumenta o erro?
 
-**Hipótese.** Penalizar a incerteza da diferença de erro entre a previsão combinada e a previsão local reduzirá a magnitude das perdas por transferência negativa em relação à mesma combinação sem penalidade. A hipótese será avaliada em inspeções reservadas de estados tratados como novos destinos.
+**Hipótese.** Ao escolher o peso dos dados externos, penalizar a incerteza da diferença de erro em relação ao modelo local reduzirá a perda média por transferência negativa nos estados de destino. A comparação será com a mesma regra sem penalidade, para cada quantidade de dados locais.
 
 ## 2. Justificativa
 
@@ -32,14 +32,14 @@ Na gestão de ativos rodoviários, antecipar uma possível piora entre inspeçõ
 
 ## 3. Objetivos
 
-**Objetivo geral.** Desenvolver e avaliar um método de transferência adaptativa de aprendizado para prever a distribuição da nota ordinal de condição da superestrutura de pontes e viadutos rodoviários na próxima inspeção rotineira registrada.
+**Objetivo geral.** Desenvolver e avaliar um método de transferência adaptativa de aprendizado para prever a distribuição da nota ordinal de condição da superestrutura de pontes e viadutos na próxima inspeção rotineira registrada.
 
 **Objetivos específicos**
 
 1. Reconstruir históricos comparáveis por estrutura, distinguindo novas inspeções, republicações e alterações cadastrais.
 2. Estimar o peso da previsão de origem por uma regra que considere a incerteza da diferença de erro em relação ao modelo local.
 3. Quantificar o benefício e a perda por transferência sob diferentes quantidades de dados locais, materiais e tipologias.
-4. Medir quantas quedas de nota a triagem identifica sob capacidade fixa de reavaliação técnica e definir os requisitos para aplicar o método à gestão de pontes e viadutos no Brasil.
+4. Quantificar a diferença entre critérios de triagem no número de quedas de nota captadas com as mesmas vagas e estabelecer um protocolo de aplicação a outros inventários, com o Brasil como exemplo.
 
 ## 4. Revisão da literatura
 
@@ -75,19 +75,19 @@ Para isolar o efeito da penalidade, a combinação sem penalidade usará as mesm
 
 ### 5.3 Experimento e medida principal
 
-Cada rodada reservará um estado como destino. Os anos iniciais fornecerão o histórico de desenvolvimento, um período posterior permitirá calibração local e as inspeções finais constituirão o teste. Dados dos estados de origem respeitarão a mesma data de corte. A escassez será simulada por subamostras de estruturas locais com todos os seus registros elegíveis. Os tamanhos serão definidos a partir das contagens do piloto ampliado e fixados antes do teste. Uma avaliação adicional reservará estruturas inteiras do destino para mensurar desempenho em estruturas novas. O uso de uma estrutura já conhecida no teste temporal exigirá que todos os seus atributos tenham sido registrados antes da previsão.
+Cada rodada reservará um estado como destino. A escolha da intensidade da penalidade usará exclusivamente os demais estados e registros anteriores ao corte temporal. No destino, o período inicial servirá ao ajuste do modelo local, o seguinte à calibração do peso externo e o último ao teste. A escassez será simulada por subamostras de estruturas com seus históricos elegíveis. As contagens após os filtros no piloto ampliado orientarão os tamanhos das amostras, fixados antes do teste. Cada previsão usará os atributos disponíveis na data de corte. Uma análise adicional reservará estruturas inteiras para avaliar o desempenho em obras novas.
 
 O RPS será a medida principal. Para cada limiar entre categorias adjacentes, calcula-se a diferença entre a probabilidade prevista de uma nota até aquele limiar e o indicador de que a nota observada é igual ou inferior a ele. O RPS normalizado é a média dos quadrados dessas diferenças. Quanto menor o valor, melhor a previsão [13, 14]. Os escores serão resumidos primeiro por estrutura e depois por estado. Cada estado terá o mesmo peso no resumo principal.
 
-Para cada estado e tamanho da amostra local, haverá transferência negativa quando o RPS médio do método superar o do modelo exclusivamente local nas mesmas inspeções de teste. Serão relatadas a frequência, a magnitude e a incerteza dessas diferenças pareadas. A calibração será examinada comparando a probabilidade prevista de queda da nota com a frequência observada de quedas. Os resultados incluirão contagens por faixa de probabilidade, material, tipologia e nota inicial. Grupos com poucos eventos terão interpretação descritiva. A hipótese será examinada pela diferença de desempenho entre as combinações com e sem penalidade, considerando a redução das perdas por transferência e o efeito sobre o erro médio.
+Para cada estado e tamanho da amostra local, a perda será o excesso do RPS médio do método sobre o do modelo local nas mesmas inspeções, com valor zero quando o método igualar ou superar a referência. A hipótese prevê que a média dessas perdas entre estados seja menor com a penalidade. Para cada tamanho amostral serão apresentados a diferença pareada entre as duas regras e sua incerteza, o RPS médio total, a frequência de transferência negativa e os ganhos obtidos nos estados em que a transferência reduziu o erro. Os pesos externos escolhidos indicarão com que frequência cada regra recorreu apenas ao modelo local. A calibração será avaliada por faixa de probabilidade prevista de queda. Os resultados por material, tipologia e nota inicial informarão o número de estruturas e quedas. Grupos com poucos eventos terão interpretação descritiva.
 
-### 5.4 Uso público e aplicação ao Brasil
+### 5.4 Triagem e transferência entre inventários
 
-Em cada data de corte, a equipe disporá de K vagas para reavaliação, fixadas antes do teste. Para cada estrutura, a ficha reunirá a última nota, o intervalo programado até a próxima inspeção, a probabilidade de queda e sua incerteza estimada por reamostragem de estruturas. Três listas serão comparadas nas mesmas obras e datas, ordenadas pela maior probabilidade de queda, pela pior nota atual ou pelo maior tempo desde a última inspeção. A medida será o número de quedas posteriores captadas nas K vagas e sua proporção entre todas as quedas observadas. Os empates seguirão uma ordem de identificadores fixada previamente.
+Antes do teste serão fixadas uma capacidade principal de K reavaliações por data de corte e capacidades alternativas para análise de sensibilidade. A ficha da obra reunirá a última nota, o intervalo programado e a probabilidade de queda com sua incerteza, estimada por reamostragem de estruturas. Nas mesmas obras e datas, serão comparadas três listas, ordenadas pela maior probabilidade de queda, pela pior nota atual e pelo maior tempo desde a última inspeção. Para cada capacidade, serão informados o número e a proporção das quedas posteriores captadas e quantas quedas a mais ou a menos o modelo captou em relação a cada critério. Uma ordem de identificadores previamente fixada resolverá os empates.
 
 Para o DNIT, a triagem poderá orientar a alocação de equipes para diagnóstico e a seleção de obras para estudo de alternativas e custos, preservadas as prioridades técnicas e os prazos de inspeção vigentes. A priorização de investimentos exige considerar também a gravidade observada, a importância da ligação viária, as consequências de uma interrupção e o custo das intervenções [16].
 
-O produto brasileiro será um protocolo para avaliar a aplicabilidade do método em acervos de OAEs. A ficha de inspeção rotineira expedita e os critérios de avaliação da DNIT 010/2024–PRO (anexos B a D) orientarão a documentação das estruturas, das inspeções, dos elementos avaliados e das notas [15]. A comparação entre a nota de 0 a 9 da superestrutura no NBI e as notas de 1 a 5 por elemento no procedimento do DNIT exigirá verificar quais elementos são avaliados e o significado técnico de cada categoria [1, 15]. Com cadastro disponível, será estimada a cobertura dos atributos brasileiros nos dados de origem. Com inspeções sucessivas compatíveis e autorizadas, será feita avaliação externa temporal. Um inventário de outro país poderá cumprir esse papel se a documentação sustentar a equivalência do desfecho. O experimento principal será concluído com dados públicos do NBI.
+O protocolo de transferência registrará o componente avaliado, o significado de cada categoria e o que caracteriza piora em cada inventário. No caso brasileiro, os anexos B a D da DNIT 010/2024–PRO orientarão a comparação das notas por elemento (1 a 5) com a nota da superestrutura no NBI (0 a 9) [1, 15]. Quando vigas e lajes receberem notas individuais, será preciso justificar como elas representam a condição do conjunto. A correspondência proposta deverá ter respaldo nos manuais ou em avaliações das mesmas obras pelos dois procedimentos. Com documentação apenas, o produto será um diagnóstico de compatibilidade. Com cadastro disponível, será examinada a cobertura dos atributos. Havendo correspondência fundamentada e históricos sucessivos autorizados, o método adaptado será comparado ao modelo local em inspeções posteriores reservadas, na escala do destino. O experimento principal usará dados públicos do NBI.
 
 A DNIT 010/2024–PRO também abrange passarelas. Nos Estados Unidos, as normas federais de inspeção de pontes excluem travessias exclusivamente de pedestres [15, 17]. Uma extensão exploratória para passarelas terá análise separada, condicionada à licença de uso, a históricos comparáveis e a eventos suficientes para estimar o desempenho. Túneis e contenções, contemplados pelo PROARTE [16], ficam para pesquisas futuras com inventários, componentes e desfechos próprios.
 
@@ -99,7 +99,7 @@ A DNIT 010/2024–PRO também abrange passarelas. Nos Estados Unidos, as normas 
 
 **Ano 3.** Avaliação em estados e períodos reservados, curvas de desempenho por disponibilidade local, comparação dos componentes e estudo das situações de transferência negativa. Produto previsto: artigo sobre o método e seus limites de aplicação.
 
-**Ano 4.** Avaliação retrospectiva da triagem, protocolo de aplicação aos acervos brasileiros e síntese da tese. O acesso a históricos internacionais adicionais ou brasileiros permitirá ampliar a evidência de validade externa.
+**Ano 4.** Avaliação retrospectiva da triagem sob diferentes capacidades de reavaliação, protocolo de transferência entre inventários com aplicação documental ao Brasil e síntese da tese. A validação externa dependerá de históricos locais compatíveis e autorizados.
 
 ## 6. Referências bibliográficas
 
